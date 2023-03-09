@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Simple Game</title>
+</head>
+<body>
+	<h1>JavaScript Simple Game</h1>
+	<p>Click the button as many times as you can in 10 seconds!</p>
+	<button id="button">Click me!</button>
+	<p id="score"></p>
+
+	<script>
+		var button = document.getElementById("button");
+		var score = document.getElementById("score");
+		var count = 0;
+		var timer = 10;
+
+		button.addEventListener("click", function(){
+			count++;
+			score.innerHTML = "Score: " + count;
+		});
+
+		var countdown = setInterval(function(){
+			timer--;
+			if (timer <= 0){
+				clearInterval(countdown);
+				button.disabled = true;
+				score.innerHTML += "<br>Game over!";
+			}
+		}, 1000);
+	</script>
+</body>
+</html>
